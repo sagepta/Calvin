@@ -5,99 +5,225 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Calvin 🐈 | Real Bali Cat</title>
-    <meta name="description" content="Calvin — a real Bali cat and the face of a community meme project.">
-    
+
+    <meta
+        name="description"
+        content="Calvin — a real Bali cat, community meme project and internet legend."
+    >
+
     <style>
         * {
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             margin: 0;
             font-family: Arial, Helvetica, sans-serif;
-            background: #0d0d12;
+            background:
+                radial-gradient(
+                    circle at top,
+                    #222230 0%,
+                    #0d0d12 55%,
+                    #09090d 100%
+                );
             color: #ffffff;
             text-align: center;
         }
 
         .container {
-            max-width: 900px;
-            margin: auto;
+            width: min(920px, 100%);
+            margin: 0 auto;
             padding: 60px 20px 80px;
         }
 
+        .hero {
+            padding: 40px 0 30px;
+        }
+
         .cat {
-            font-size: 90px;
-            margin-bottom: 10px;
+            font-size: 100px;
+            line-height: 1;
+            margin-bottom: 20px;
         }
 
         h1 {
-            font-size: 76px;
-            margin: 10px 0;
+            font-size: clamp(56px, 10vw, 88px);
+            line-height: 1;
+            margin: 0 0 15px;
+            letter-spacing: -3px;
         }
 
-        .subtitle {
+        .tagline {
+            max-width: 650px;
+            margin: 0 auto;
             font-size: 22px;
-            color: #aaa;
-            margin-bottom: 45px;
+            line-height: 1.5;
+            color: #b8b8c2;
         }
 
-        .card {
-            background: #18181f;
-            border: 1px solid #282832;
-            border-radius: 22px;
-            padding: 30px;
-            margin: 25px 0;
-        }
-
-        h2 {
-            font-size: 30px;
-            margin-top: 0;
-        }
-
-        p {
-            color: #bdbdc7;
-            line-height: 1.7;
-            font-size: 17px;
-        }
-
-        .socials {
+        .buttons {
             display: flex;
-            flex-wrap: wrap;
             justify-content: center;
+            flex-wrap: wrap;
             gap: 12px;
-            margin-top: 25px;
+            margin-top: 32px;
         }
 
-        .socials a {
+        .button {
             display: inline-block;
             padding: 14px 24px;
             border-radius: 999px;
             background: #ffd84d;
-            color: #111;
+            color: #111111;
+            text-decoration: none;
+            font-weight: 700;
+            transition:
+                transform 0.15s ease,
+                opacity 0.15s ease;
+        }
+
+        .button:hover {
+            transform: translateY(-2px);
+            opacity: 0.9;
+        }
+
+        .button.secondary {
+            background: #ffffff;
+        }
+
+        .card {
+            margin-top: 24px;
+            padding: 32px;
+            background: rgba(24, 24, 31, 0.9);
+            border: 1px solid #2b2b37;
+            border-radius: 24px;
+            text-align: left;
+        }
+
+        .card h2 {
+            margin-top: 0;
+            font-size: 30px;
+            text-align: center;
+        }
+
+        .card p {
+            color: #bdbdc7;
+            font-size: 17px;
+            line-height: 1.75;
+        }
+
+        .story {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px;
+            margin-top: 25px;
+        }
+
+        .story-item {
+            padding: 20px;
+            background: #20202a;
+            border-radius: 18px;
+            text-align: center;
+        }
+
+        .story-item strong {
+            display: block;
+            font-size: 24px;
+            margin-bottom: 8px;
+            color: #ffd84d;
+        }
+
+        .story-item span {
+            color: #aaaab5;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .social-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px;
+            margin-top: 25px;
+        }
+
+        .social {
+            display: block;
+            padding: 18px;
+            border-radius: 18px;
+            background: #20202a;
+            color: #ffffff;
             text-decoration: none;
             font-weight: 700;
             transition: transform 0.15s ease;
         }
 
-        .socials a:hover {
+        .social:hover {
             transform: translateY(-2px);
         }
 
-        .links {
-            margin-top: 25px;
+        .social small {
+            display: block;
+            margin-top: 6px;
+            color: #92929f;
+            font-weight: 400;
         }
 
-        .links a {
+        .contract-box {
+            margin-top: 25px;
+            padding: 20px;
+            border-radius: 18px;
+            background: #111117;
+            border: 1px dashed #3a3a49;
+        }
+
+        .contract-box h3 {
+            margin-top: 0;
+        }
+
+        .contract {
+            word-break: break-all;
             color: #ffd84d;
-            text-decoration: none;
-            margin: 0 10px;
+            font-family: monospace;
+            font-size: 14px;
+        }
+
+        .disclaimer {
+            text-align: center;
+            color: #777783;
+            font-size: 13px;
+            line-height: 1.6;
         }
 
         footer {
             margin-top: 50px;
-            color: #666;
+            color: #666673;
             font-size: 14px;
+            line-height: 1.7;
+        }
+
+        footer a {
+            color: #a5a5b2;
+            text-decoration: none;
+            margin: 0 8px;
+        }
+
+        @media (max-width: 700px) {
+            .story,
+            .social-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .card {
+                padding: 24px;
+            }
+
+            .tagline {
+                font-size: 18px;
+            }
         }
     </style>
 </head>
@@ -106,82 +232,213 @@
 
 <div class="container">
 
-    <div class="cat">🐈</div>
+    <!-- HERO -->
+    <section class="hero">
 
-    <h1>Calvin</h1>
+        <div class="cat">🐈</div>
 
-    <div class="subtitle">
-        Real Bali cat. 4 years old. Professional chaos.
-    </div>
+        <h1>Calvin</h1>
 
-    <div class="card">
+        <p class="tagline">
+            Real Bali cat. 4 years old.
+            Professional chaos.
+        </p>
+
+        <div class="buttons">
+
+            <a
+                class="button"
+                href="https://x.com/calvinossol"
+                target="_blank"
+                rel="noopener noreferrer">
+                𝕏 Follow Calvin
+            </a>
+
+            <a
+                class="button secondary"
+                href="https://t.me/calvinfam"
+                target="_blank"
+                rel="noopener noreferrer">
+                ✈️ Join Telegram
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- ABOUT -->
+    <section class="card">
+
         <h2>Who is Calvin?</h2>
 
         <p>
             Calvin is a real cat who was taken in as a kitten in Bali.
-            He became the face of a community-driven meme project
-            built around his personality, photos, videos and adventures.
+            Over the years, he became the face of a community built
+            around his personality, photos, videos, memes and everyday adventures.
         </p>
 
         <p>
-            Welcome to the official Calvin community.
+            Calvin isn't an AI character or a fictional mascot.
+            He's a real cat with a real story — and now he's becoming
+            an internet legend.
         </p>
-    </div>
 
-    <div class="card">
-        <h2>Join the Calvin Community</h2>
+        <div class="story">
+
+            <div class="story-item">
+                <strong>🐾 4</strong>
+                <span>Years old</span>
+            </div>
+
+            <div class="story-item">
+                <strong>🌴 Bali</strong>
+                <span>Where Calvin's story began</span>
+            </div>
+
+            <div class="story-item">
+                <strong>😼 100%</strong>
+                <span>Professional chaos</span>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- COMMUNITY -->
+    <section class="card">
+
+        <h2>The Calvin Community</h2>
 
         <p>
-            Follow Calvin, share the memes and become part of the community.
+            The Calvin community is built around memes, creativity,
+            internet culture and the personality of one very chaotic cat.
         </p>
 
-        <div class="socials">
+        <p>
+            Follow Calvin, share the memes, create your own Calvin content
+            and become part of the story.
+        </p>
+
+    </section>
+
+
+    <!-- SOCIALS -->
+    <section class="card">
+
+        <h2>Find Calvin Everywhere</h2>
+
+        <div class="social-grid">
 
             <a
+                class="social"
                 href="https://x.com/calvinossol"
                 target="_blank"
                 rel="noopener noreferrer">
+
                 𝕏 X
+
+                <small>
+                    @calvinossol
+                </small>
+
             </a>
 
+
             <a
+                class="social"
                 href="https://instagram.com/calvinossol"
                 target="_blank"
                 rel="noopener noreferrer">
+
                 📸 Instagram
+
+                <small>
+                    @calvinossol
+                </small>
+
             </a>
 
+
             <a
+                class="social"
                 href="https://t.me/calvinfam"
                 target="_blank"
                 rel="noopener noreferrer">
+
                 ✈️ Telegram
+
+                <small>
+                    Calvin Community
+                </small>
+
             </a>
 
         </div>
-    </div>
 
-    <div class="card">
-        <h2>Calvin Community</h2>
+    </section>
+
+
+    <!-- TOKEN -->
+    <section class="card">
+
+        <h2>Calvin Token</h2>
 
         <p>
+            The Calvin token is part of the community meme project.
+            This website is the official home for Calvin's community
+            and social channels.
+        </p>
+
+        <!--
+        WHEN THE FINAL CONTRACT ADDRESS IS READY,
+        PUT IT IN THE BLOCK BELOW.
+        -->
+
+        <div class="contract-box">
+
+            <h3>Contract Address</h3>
+
+            <div class="contract">
+                Coming soon
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- DISCLAIMER -->
+    <section class="card">
+
+        <p class="disclaimer">
             Calvin is a meme and community project created for
             entertainment and community participation.
+            Any associated digital asset is not a guarantee of profit,
+            investment advice, or a promise of financial return.
         </p>
 
-        <p>
-            The community shares Calvin memes, photos, videos,
-            stories and internet culture.
-        </p>
-    </div>
+    </section>
 
-    <div class="links">
-        <a href="privacy.html">Privacy Policy</a>
-        <a href="terms.html">Terms</a>
-    </div>
 
+    <!-- FOOTER -->
     <footer>
-        © 2026 Calvin Community
+
+        <div>
+            © 2026 Calvin Community
+        </div>
+
+        <div>
+            <a href="privacy.html">
+                Privacy Policy
+            </a>
+
+            <a href="terms.html">
+                Terms
+            </a>
+        </div>
+
     </footer>
 
 </div>
